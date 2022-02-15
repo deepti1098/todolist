@@ -19,5 +19,5 @@ from task.views import todoView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('todoView/', todoView),
+    path('', todoView),
 ]
