@@ -1,0 +1,13 @@
+<h1>My ToDo List</h1>
+<ul>
+    {% for i in all_items %}
+    <li>
+        {{i.content}}
+    </li>
+    {% endfor %}
+</ul>
+
+<form action = "/addTodoItem/" method = "post">{% csrf_token %}
+    <input type="text" name="content">
+    <input type="submit" name = "btn" value="Add Item">
+</form>
