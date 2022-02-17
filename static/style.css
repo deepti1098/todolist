@@ -13,3 +13,10 @@
 #ff{
     padding-right: 20px;
 }
+#register{
+    position: absolute;
+    left: 10px;
+}
+#register span{
+    color: blue;
+}
