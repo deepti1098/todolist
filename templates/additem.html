@@ -1,5 +1,5 @@
-{% extends 'list.html'%}
-{% block additemcontent %}
+{% comment %} {% extends 'list.html'%}
+{% block additemcontent %} {% endcomment %}
 
 <section class="h-100 gradient-form gradient-custom-2" >
     <div class="container px-1 py-1 h-100">
@@ -17,11 +17,11 @@
                         >
                           <span class="btn-text">Add</span>
                         </button>
+                        <a onclick="handlerHide()" style= "color:white">
                         <button
                           class="btn btn-primary gradient-custom-1 btn-sm"
                           type="button"
                         >
-                        <a href={% url "homepage" %} style= "color:white">
                           <span class="btn-text">Cancel</span>
                         </button>
                       </a>
@@ -31,4 +31,4 @@
     </div>
   </section>
 
-{% endblock %}
+{% comment %} {% endblock %} {% endcomment %}
