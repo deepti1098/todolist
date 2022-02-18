@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+ {% block content %}
+
+ <section class="h-100 gradient-form list-view" style="background-color: #eee">
+    <div class="container py-4 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-xl-10">
+          <div class="card rounded-3 text-black list-view">
+                <div class="card-body p-md-2 mx-md-2 ">
+                    <a href={% url "additemurl" %}>
+                        <i class="fa fa-solid fa-circle-plus gradient-text"></i>
+                        <span style="color:#d8363a">Add new task</span>
+                    </a>
+                    {% block additemcontent %}{% endblock %}
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+ {% endblock %}
