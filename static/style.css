@@ -24,6 +24,9 @@
     font-size: 14px;
     padding: -10px;
 }
+.taskform{
+    border: 0px solid white!important;
+}
 .gradient-text{
     color: #ee7724;
 }
@@ -59,3 +62,11 @@
       border-bottom-right-radius: .3rem;
     }
   }
+
+.updatetask{
+    float: right;
+}
+.updatetask i{
+    padding: 3px;
+    color: #b44593;
+}
