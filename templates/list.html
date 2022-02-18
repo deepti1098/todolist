@@ -17,16 +17,17 @@
                     {% include 'taskelement.html' %}
                     {% include 'taskelement.html' %}
                     {% include 'taskelement.html' %}
-                    <a href={% url "additemurl" %}>
+                    <a onclick="handlerShow()">
                         <i class="fa fa-solid fa-circle-plus gradient-text"></i>
                         <span style="color:#d8363a">Add new task</span>
                     </a>
-                    {% block additemcontent %}{% endblock %}
+                    <div id="addbox" style="display:none"> 
+                    {% include 'additem.html' %}
+                    </div>
                 </div>
             </div>
         </div>
       </div>
     </div>
   </section>
-
  {% endblock %}
