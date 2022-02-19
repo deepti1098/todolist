@@ -2,11 +2,11 @@
     <div class="container px-1 py-1">
         <div class="card rounded-3 text-black">
             <div class="card-body p-md-2 mx-md-2">
-                <h3>Title</h3>
-                <p>Lahjhakjfnanfjknjkanjf andjakhfjkhakjfjsk ahkjfahfkahsfja</p>
+                <h3>{{ task_detail.title }}</h3>
+                <p>{{ task_detail.desc }}</p>
                 <div class="row">
                     <div class="col">
-                        <p>12/2/33131</p>
+                        <p>{{ task_detail.date }}</p>
                     </div>
                     <div class="col">
                         <span class="updatetask"><i class="fa-solid fa-trash"></i><i class="fa-solid fa-pen-to-square"></i></span>
