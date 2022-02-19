@@ -18,7 +18,8 @@
                   />
                 </div>
 
-                <form>
+                <form action={% url "loginurl" %} method = "post">
+                  {% csrf_token %}
                   <p class="fs-4">Please login to your account</p>
 
                   <div class="form-outline mb-4">
@@ -27,6 +28,8 @@
                       id="form2Example11"
                       class="form-control"
                       placeholder="Email Address"
+                      name = "Lemail"
+                      required
                     />
                   </div>
 
@@ -36,13 +39,15 @@
                       id="form2Example22"
                       class="form-control"
                       placeholder="Password"
+                      name = "Lpass"
+                      required
                     />
                   </div>
 
                   <div class="text-center mb-2 login-btn">
                     <button
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
-                      type="button"
+                      type="submit"
                     >
                       Log in
                     </button>

@@ -1,15 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import ToDO
 from User.models import User_detail
 
 
 def todoView(request):
     if not request.user.is_authenticated:
-        return render(request, 'login.html')
+        return redirect("login/")
     user = User_detail.objects.get(user=request.user)
     ls = ToDO.objects.filter(user=user)
-    context = { 'todolist' : ls}
-    return render(request, 'list.html',context)
+    context = {'todolist': ls}
+    return render(request, 'list.html', context)
 
 
 def addtaskview(request):
