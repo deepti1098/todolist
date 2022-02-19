@@ -18,7 +18,8 @@
                   />
                 </div>
 
-                <form>
+                <form action={% url "signupurl" %} method="post" onsubmit= "return matchPassword()">
+                  {% csrf_token %}
                   <p class="fs-4">Create new account</p>
 
                   <div class="form-outline mb-4">
@@ -26,6 +27,8 @@
                       type="text"
                       class="form-control"
                       placeholder="Name"
+                      name = "name"
+                      required
                     />
                   </div>
 
@@ -35,30 +38,37 @@
                       id="form2Example11"
                       class="form-control"
                       placeholder="Email Address"
+                      name="email"
+                      required
                     />
                   </div>
 
                   <div class="form-outline mb-4">
-                    <input
+                    <input 
                       type="password"
-                      id="form2Example22"
+                      id="pass1"
                       class="form-control"
                       placeholder="Password"
+                      name="pass"
+                      required
+                      pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                     />
                   </div>
 
                   <div class="form-outline mb-4">
                     <input
                       type="password"
+                      id="cpass2"
                       class="form-control"
                       placeholder="Confirm Password"
+                      required
                     />
                   </div>
 
                   <div class="text-center mb-2 login-btn">
                     <button
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
-                      type="button"
+                      type="submit"
                     >
                       Sign Up
                     </button>
