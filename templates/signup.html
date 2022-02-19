@@ -18,7 +18,7 @@
                   />
                 </div>
 
-                <form action={% url "signupurl" %} method="post" onsubmit= "return matchPassword()">
+                <form action={% url "signupurl" %} method="post" onsubmit= "return matchPassword()" >
                   {% csrf_token %}
                   <p class="fs-4">Create new account</p>
 
@@ -29,6 +29,7 @@
                       placeholder="Name"
                       name = "name"
                       required
+                      value="{{ Name }}"
                     />
                   </div>
 
@@ -40,9 +41,14 @@
                       placeholder="Email Address"
                       name="email"
                       required
+                      value="{{ Email }}"
                     />
+                    {% if emailexists %}
+                    <div class="errormsg">
+                      Email already exists.
+                    </div>
+                    {% endif %}
                   </div>
-
                   <div class="form-outline mb-4">
                     <input 
                       type="password"
@@ -52,6 +58,7 @@
                       name="pass"
                       required
                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
+                      value="{{ Pass }}"
                     />
                   </div>
 
@@ -62,7 +69,11 @@
                       class="form-control"
                       placeholder="Confirm Password"
                       required
+                      value="{{ Pass }}"
                     />
+                    <div class="errormsg removeele" id="signupcpasserr">
+                      Password did not match.
+                    </div>
                   </div>
 
                   <div class="text-center mb-2 login-btn">
