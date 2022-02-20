@@ -13,4 +13,10 @@ def todoView(request):
 
 
 def addtaskview(request):
-    return render(request, 'additem.html')
+    user = User_detail.objects.get(user=request.user)
+    if request.method == "POST":
+        Title = request.POST["titl"]
+        Desc = request.POST["descr"]
+        Date = request.POST["datetime"]
+        ToDO.objects.create(user=user, title=Title, desc=Desc, date=Date)
+    return redirect("/")
