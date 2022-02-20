@@ -22,6 +22,12 @@
                   {% csrf_token %}
                   <p class="fs-4">Please login to your account</p>
 
+                  {% if loginincorrect %}
+                  <div class="errormsg">
+                    Username or Password is incorrect
+                  </div>
+                  {% endif %}
+                  
                   <div class="form-outline mb-4">
                     <input
                       type="email"

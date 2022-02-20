@@ -7,23 +7,26 @@ from django.contrib.auth import authenticate, login, logout
 
 
 def loginview(request):
+    context = {"loginincorrect": False}
     if request.method == "POST":
         LEmail = request.POST["Lemail"]
         LPass = request.POST["Lpass"]
         user = authenticate(username=LEmail, password=LPass)
         if user:
             login(request, user)
-
             return redirect("/")
+        else:
+            context["loginincorrect"] = True
+            return render(request, 'login.html', context)
 
-    return render(request, 'login.html')
+    return render(request, 'login.html', context)
 
 
 def signupview(request):
-    context={"emailexists": False,
-                "Name": "",
-                "Email": "",
-                "Pass": ""}
+    context = {"emailexists": False,
+               "Name": "",
+               "Email": "",
+               "Pass": ""}
     if request.method == "POST":
         Name = request.POST["name"]
         Email = request.POST["email"]
@@ -37,13 +40,13 @@ def signupview(request):
             login(request, user)
             return redirect("/")
         else:
-            context["emailexists"]=True
-            context["Email"]=Email
-            context["Name"]=Name
-            context["Pass"]=Pass
-            return render(request, 'signup.html',context)
+            context["emailexists"] = True
+            context["Email"] = Email
+            context["Name"] = Name
+            context["Pass"] = Pass
+            return render(request, 'signup.html', context)
 
-    return render(request, 'signup.html',context)
+    return render(request, 'signup.html', context)
 
 
 def logoutview(request):
