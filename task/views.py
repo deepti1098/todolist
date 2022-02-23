@@ -20,3 +20,17 @@ def addtaskview(request):
         Date = request.POST["datetime"]
         ToDO.objects.create(user=user, title=Title, desc=Desc, date=Date)
     return redirect("/")
+
+
+def deltaskview(request):
+    user = User_detail.objects.get(user=request.user)
+    ls = ToDO.objects.filter(user=user)
+    ls.delete()
+
+    return redirect("/")
+
+
+def removetaskview(request, id):
+    todo = ToDO.objects.get(id=id)
+    todo.delete()
+    return redirect("/")
