@@ -9,3 +9,9 @@ class ToDO(models.Model):
     title = models.CharField(max_length=100, default="")
     desc = models.CharField(max_length=200, blank=True)
     date = models.DateTimeField(blank=True, default=datetime.datetime.now())
+
+    def getremoveurl(self):
+        return f"delete/{self.id}"
+
+    class Meta:
+        ordering = ['date']

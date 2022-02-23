@@ -9,7 +9,10 @@
                         <p>{{ task_detail.date }}</p>
                     </div>
                     <div class="col">
-                        <span class="updatetask"><i class="fa-solid fa-trash"></i><i class="fa-solid fa-pen-to-square"></i></span>
+                        <span class="updatetask">
+                            <a href={{task_detail.getremoveurl}}><i class="fa-solid fa-trash"></i></a>
+                            <a><i class="fa-solid fa-pen-to-square"></i></a>
+                        </span>
                     </div>
                 </div>
             </div>
