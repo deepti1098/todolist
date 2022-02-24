@@ -81,3 +81,7 @@
 .removeele{
     display: none;
 }
+.form-control:disabled{
+    background-color: transparent!important;
+    opacity: 1;
+}

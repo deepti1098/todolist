@@ -2,16 +2,23 @@
     <div class="container px-1 py-1">
         <div class="card rounded-3 text-black">
             <div class="card-body p-md-2 mx-md-2">
-                <h3>{{ task_detail.title }}</h3>
-                <p>{{ task_detail.desc }}</p>
-                <div class="row">
-                    <div class="col">
-                        <p>{{ task_detail.date }}</p>
-                    </div>
-                    <div class="col">
-                        <span class="updatetask"><i class="fa-solid fa-trash"></i><i class="fa-solid fa-pen-to-square"></i></span>
-                    </div>
-                </div>
+                {% comment %} <form action={% url "additemurl" %} method="post">
+                    {% csrf_token %} {% endcomment %}
+                  <input class="form-control form-control-lg mb-2 taskform" id="{{ task_detail.id }}-title" type="text" placeholder="Title" name="titl" value={{ task_detail.title }} required disabled>
+                  <textarea class="form-control mb-2 taskform" name="descr" id="{{ task_detail.id }}-desc" placeholder="Description" disabled>{{ task_detail.desc }}</textarea>
+                  <input class="form-control form-control-sm mb-2 taskform" id="{{ task_detail.id }}-date" name="datetime" value={{ task_detail.date }} type="datetime-local" required disabled>
+                  <div id="{{ task_detail.id }}-icons">
+                    <span class="updatetask"><i class="fa-solid fa-trash"></i><i onclick="editClickHandle({{ task_detail.id }})" class="fa-solid fa-pen-to-square"></i></span>
+                  </div>
+                  <div class="mb-2 updatetask removeele" id="{{ task_detail.id }}-update">
+                    <button onclick="updateClickHandle({{ task_detail.id }})" class="btn btn-primary gradient-custom-1 btn-sm" type="button">
+                      <span class="btn-text">Update</span>
+                    </button>
+                    <button onclick="cancelClickHandle({{ task_detail.id }})" class="btn btn-primary gradient-custom-1 btn-sm" type="button">
+                      <span class="btn-text">Cancel</span>
+                    </button>
+                  </div>
+                {% comment %} </form> {% endcomment %}
             </div>
         </div>
     </div>

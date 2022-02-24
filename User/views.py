@@ -1,8 +1,8 @@
-import email
 from django.shortcuts import render, redirect
 from User.models import User_detail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
+from django.db import IntegrityError
 # Create your views here.
 
 
@@ -31,15 +31,14 @@ def signupview(request):
         Name = request.POST["name"]
         Email = request.POST["email"]
         Pass = request.POST["pass"]
-        user = User.objects.get(username=Email)
-        if not user:
+        try:
             user = User.objects.create_user(username=Email, password=Pass)
             user_detail = User_detail.objects.create(
                 user=user, name=Name, emailid=Email)
 
             login(request, user)
             return redirect("/")
-        else:
+        except IntegrityError:
             context["emailexists"] = True
             context["Email"] = Email
             context["Name"] = Name
