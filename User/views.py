@@ -52,3 +52,11 @@ def signupview(request):
 def logoutview(request):
     logout(request)
     return redirect("/")
+
+
+def emailview(request):
+    return render(request, 'email.html')
+
+
+def forgpassview(request):
+    return render(request, 'forgotpass.html')

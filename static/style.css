@@ -4,8 +4,8 @@
 #picon{
     margin-right: 40px;
 }
-#todoname{
-    margin-left: 100px; 
+.todoname{
+    margin-left: 50px; 
 }
 .white-text{
     color:white;
@@ -28,6 +28,13 @@
 }
 .taskform{
     border: 0px solid white!important;
+}
+.form-control:disabled{
+
+    background-color: transparent!important;
+
+    opacity: 1;
+
 }
 .gradient-text{
     color: #ee7724;

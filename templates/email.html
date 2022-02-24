@@ -20,7 +20,7 @@
 
                 <form action={% url "loginurl" %} method = "post">
                   {% csrf_token %}
-                  <p class="fs-4">Please login to your account</p>
+                  <p class="fs-4">Recover Account!</p>
 
                   {% if loginincorrect %}
                   <div class="errormsg">
@@ -39,38 +39,19 @@
                     />
                   </div>
 
-                  <div class="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="form2Example22"
-                      class="form-control"
-                      placeholder="Password"
-                      name = "Lpass"
-                      required
-                    />
-                  </div>
-
                   <div class="text-center mb-2 login-btn">
+                    <a href={% url "forgpassurl" %}
                     <button
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
                       type="submit"
                     >
-                      Log in
+                     Submit
                     </button>
+                  </a>
                   </div>
-                  <div class="text-center mb-4">
-                    <a href={% url "emailurl" %} class="text-muted" href="#!">Forgot password?</a>
-                  </div>
+                 
 
-                  <div
-                    class="d-flex align-items-center justify-content-center pb-4"
-                  >
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <a href = {% url "signupurl"%}>
-                    <button type="button" class="btn btn-outline-danger">
-                      Create new
-                    </button></a>
-                  </div>
+                 
                 </form>
               </div>
             </div>
