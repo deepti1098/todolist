@@ -20,24 +20,7 @@
 
                 <form action={% url "loginurl" %} method = "post">
                   {% csrf_token %}
-                  <p class="fs-4">Please login to your account</p>
-
-                  {% if loginincorrect %}
-                  <div class="errormsg">
-                    Username or Password is incorrect
-                  </div>
-                  {% endif %}
-                  
-                  <div class="form-outline mb-4">
-                    <input
-                      type="email"
-                      id="form2Example11"
-                      class="form-control"
-                      placeholder="Email Address"
-                      name = "Lemail"
-                      required
-                    />
-                  </div>
+                  <p class="fs-4">Reset Password</p>
 
                   <div class="form-outline mb-4">
                     <input
@@ -49,6 +32,19 @@
                       required
                     />
                   </div>
+                  <div class="form-outline mb-4">
+                    <input
+                      type="password"
+                      id="cpass2"
+                      class="form-control"
+                      placeholder="Confirm Password"
+                      required
+                      value="{{ Pass }}"
+                    />
+                    <div class="errormsg removeele" id="signupcpasserr">
+                      Password did not match.
+                    </div>
+                  </div>
 
                   <div class="text-center mb-2 login-btn">
                     <button
@@ -57,19 +53,6 @@
                     >
                       Log in
                     </button>
-                  </div>
-                  <div class="text-center mb-4">
-                    <a href={% url "emailurl" %} class="text-muted" href="#!">Forgot password?</a>
-                  </div>
-
-                  <div
-                    class="d-flex align-items-center justify-content-center pb-4"
-                  >
-                    <p class="mb-0 me-2">Don't have an account?</p>
-                    <a href = {% url "signupurl"%}>
-                    <button type="button" class="btn btn-outline-danger">
-                      Create new
-                    </button></a>
                   </div>
                 </form>
               </div>
