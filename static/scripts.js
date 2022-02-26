@@ -27,6 +27,24 @@ function deletemodalhide() {
 
 }
 
+function logoutmodalshow() {
+  $("#exampleFrameModal2").show();
+}
+
+function logoutmodalhide() {
+  $("#exampleFrameModal2").hide();
+
+}
+
+function clearallmodalshow() {
+  $("#exampleFrameModal3").show();
+}
+
+function clearallmodalhide() {
+  $("#exampleFrameModal3").hide();
+
+}
+
 function editClickHandle(id) {
   $("#" + id + "-icons").addClass("removeele");
   $("#" + id + "-update").removeClass("removeele");
