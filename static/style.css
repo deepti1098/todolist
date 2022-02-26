@@ -1,9 +1,6 @@
 #search-form{
     margin-right: 100px;
 }
-#picon{
-    margin-right: 40px;
-}
 .todoname{
     margin-left: 50px; 
 }
@@ -63,6 +60,15 @@
   @media (min-width: 768px) {
     .gradient-form {
       height: 100vh !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .todoname{
+        margin-left: 0px;
+    }
+    .aligncenter{
+        text-align:center;
     }
   }
   @media (min-width: 769px) {

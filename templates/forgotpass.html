@@ -18,14 +18,14 @@
                   />
                 </div>
 
-                <form action={% url "loginurl" %} method = "post">
+                <form action='' method = "post" onsubmit= "return matchPassword()">
                   {% csrf_token %}
                   <p class="fs-4">Reset Password</p>
 
                   <div class="form-outline mb-4">
                     <input
                       type="password"
-                      id="form2Example22"
+                      id="pass1"
                       class="form-control"
                       placeholder="Password"
                       name = "Lpass"
@@ -39,7 +39,6 @@
                       class="form-control"
                       placeholder="Confirm Password"
                       required
-                      value="{{ Pass }}"
                     />
                     <div class="errormsg removeele" id="signupcpasserr">
                       Password did not match.
@@ -51,7 +50,7 @@
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
                       type="submit"
                     >
-                      Log in
+                      Reset
                     </button>
                   </div>
                 </form>

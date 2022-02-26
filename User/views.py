@@ -5,6 +5,11 @@ from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
 from django.core.mail import send_mail
 from todolist import settings
+from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
+from django.utils.encoding import force_bytes
+from django.contrib.auth.tokens import default_token_generator
+from django.template import loader
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 
 
@@ -57,14 +62,46 @@ def logoutview(request):
 
 
 def emailview(request):
-    return render(request, 'email.html')
-
-def emailsentview(request):
+    context = {"emailincorrect": False}
     if request.method == "POST":
         email = request.POST['Lemail']
-        send_mail('Password Reset','You can reset you password',settings.DEFAULT_FROM_EMAIL,[email],fail_silently=False)
+
+        try:
+            user = User_detail.objects.get(emailid=email)
+
+            context2 = {'email': email,
+                        'domain': request.META['HTTP_HOST'],
+                        'site_name': 'TODo.com',
+                        'uid': urlsafe_base64_encode(force_bytes(user.user.pk)),
+                        'user': user,
+                        'token': default_token_generator.make_token(user.user),
+                        'protocol': 'http', }
+
+            emailmsg = loader.render_to_string("emailtemplate.html", context2)
+            subject = "Reset your password"
+
+            send_mail(subject, emailmsg,
+                      settings.DEFAULT_FROM_EMAIL, [email], fail_silently=False)
+            return redirect("/emailsent")
+
+        except ObjectDoesNotExist:
+            context["emailincorrect"] = True
+            return render(request, 'email.html', context)
+
+    return render(request, 'email.html', context)
+
+
+def emailsentview(request):
     return render(request, 'email_sent.html')
 
-def forgpassview(request):
-    
+
+def forgpassview(request, uidb64, token):
+    if request.method == "POST":
+        userid = urlsafe_base64_decode(uidb64)
+        user = User.objects.get(pk=userid)
+        Pass = request.POST["Lpass"]
+        user.set_password(Pass)
+        user.save()
+        logout(request)
+        return render(request, 'resetdone.html')
     return render(request, 'forgotpass.html')

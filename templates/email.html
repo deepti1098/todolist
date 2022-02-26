@@ -18,13 +18,13 @@
                   />
                 </div>
 
-                <form action={% url "emailsenturl" %} method="post">
+                <form action={% url "emailurl" %} method="post">
                   {% csrf_token %}
                   <p class="fs-4">Recover Account!</p>
 
-                  {% if loginincorrect %}
+                  {% if emailincorrect %}
                   <div class="errormsg">
-                    Username or Password is incorrect
+                    Email id doesn't exist!
                   </div>
                   {% endif %}
                   
