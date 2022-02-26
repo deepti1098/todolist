@@ -7,16 +7,17 @@
         <div class="col-xl-10">
           <div class="card rounded-3 text-black list-view">
                 <div class="card-body p-md-2 mx-md-2 ">
-                    <a onclick="handlerShow()">
-                        <i class="fa fa-solid fa-circle-plus gradient-text"></i>
-                        <span style="color:#d8363a">Add new task</span>
-                    </a>
-                    <div class = "mb-2" id="addbox" style="display:none"> 
-                    {% include 'additem.html' %}
-                    </div>
                     {% for task in todolist %}
                     {% include 'taskelement.html' with task_detail=task %}
                     {% endfor %}
+
+                    <a onclick="handlerShow()">
+                      <i class="fa fa-solid fa-circle-plus gradient-text"></i>
+                      <span style="color:#d8363a">Add new task</span>
+                  </a>
+                  <div class = "mb-2" id="addbox" style="display:none"> 
+                  {% include 'additem.html' %}
+                  </div>
                 </div>
             </div>
         </div>
