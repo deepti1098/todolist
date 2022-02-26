@@ -18,7 +18,7 @@
                   />
                 </div>
 
-                <form action={% url "loginurl" %} method = "post">
+                <form action={% url "emailsenturl" %} method="post">
                   {% csrf_token %}
                   <p class="fs-4">Recover Account!</p>
 
@@ -40,14 +40,12 @@
                   </div>
 
                   <div class="text-center mb-2 login-btn">
-                    <a href={% url "forgpassurl" %}
                     <button
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
                       type="submit"
                     >
                      Submit
                     </button>
-                  </a>
                   </div>
                  
 
