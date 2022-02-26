@@ -3,6 +3,8 @@ from User.models import User_detail
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
+from django.core.mail import send_mail
+from todolist import settings
 # Create your views here.
 
 
@@ -57,6 +59,12 @@ def logoutview(request):
 def emailview(request):
     return render(request, 'email.html')
 
+def emailsentview(request):
+    if request.method == "POST":
+        email = request.POST['Lemail']
+        send_mail('Password Reset','You can reset you password',settings.DEFAULT_FROM_EMAIL,[email],fail_silently=False)
+    return render(request, 'email_sent.html')
 
 def forgpassview(request):
+    
     return render(request, 'forgotpass.html')
