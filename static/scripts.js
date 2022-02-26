@@ -18,12 +18,12 @@ function matchPassword() {
   }
 }
 
-function deletemodalshow() {
-  $("#exampleFrameModal1").show();
+function deletemodalshow(id) {
+  $("#" + id + "-modal").show();
 }
 
-function deletemodalhide() {
-  $("#exampleFrameModal1").hide();
+function deletemodalhide(id) {
+  $("#" + id + "-modal").hide();
 
 }
 

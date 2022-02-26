@@ -6,7 +6,7 @@
                   <textarea class="form-control mb-2 taskform" name="descr" id="{{ task_detail.id }}-desc" placeholder="Description" disabled>{{ task_detail.desc }}</textarea>
                   <input class="form-control form-control-sm mb-2 taskform" id="{{ task_detail.id }}-date" name="datetime" value={{ task_detail.date }} type="datetime-local" required disabled>
                   <div id="{{ task_detail.id }}-icons">
-                    <span class="updatetask"><i onclick="deletemodalshow()" class="fa-solid fa-trash"></i><i onclick="editClickHandle({{ task_detail.id }})" class="fa-solid fa-pen-to-square"></i></span>
+                    <span class="updatetask"><i onclick="deletemodalshow({{task_detail.id}})" class="fa-solid fa-trash"></i><i onclick="editClickHandle({{ task_detail.id }})" class="fa-solid fa-pen-to-square"></i></span>
                   </div>
                   <div class="mb-2 updatetask removeele" id="{{ task_detail.id }}-update">
                     <button onclick="updateClickHandle({{ task_detail.id}})" class="btn btn-primary gradient-custom-1 btn-sm" type="button">
@@ -22,7 +22,7 @@
 </div>
 
 <!--Delete modal show & hide -->
-<div class="modal fade top show" id="exampleFrameModal1" tabindex="-1" aria-labelledby="exampleFrameModal1" data-gtm-vis-first-on-screen-2340190_1302="40781" data-gtm-vis-total-visible-time-2340190_1302="100" data-gtm-vis-has-fired-2340190_1302="1" aria-modal="true" role="dialog">
+<div class="modal fade top show" id="{{ task_detail.id }}-modal" tabindex="-1" aria-labelledby="{{ task_detail.id }}-modal" data-gtm-vis-first-on-screen-2340190_1302="40781" data-gtm-vis-total-visible-time-2340190_1302="100" data-gtm-vis-has-fired-2340190_1302="1" aria-modal="true" role="dialog">
     <div class="modal-dialog modal-frame modal-top">
       <div class="modal-content rounded-0">
         <div class="modal-body py-1">
@@ -33,7 +33,7 @@
             <a href={{ task_detail.getremoveurl}}>
                 <button type="button" class="btn btn-primary gradient-custom-1 btn-sm">Yes</button>
             </a>
-            <button onclick="deletemodalhide()" type="button" class="btn btn-primary gradient-custom-1 btn-sm" data-mdb-dismiss="modal">
+            <button onclick="deletemodalhide({{task_detail.id}})" type="button" class="btn btn-primary gradient-custom-1 btn-sm" data-mdb-dismiss="modal">
               No, thanks
             </button>
           </div>
