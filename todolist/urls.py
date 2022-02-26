@@ -17,7 +17,7 @@ from re import search
 from django.contrib import admin
 from django.urls import path
 from task.views import todoView, addtaskview, deltaskview, removetaskview, searchtaskview, updatetaskview
-from User.views import loginview, signupview, logoutview, emailview, forgpassview,emailsentview
+from User.views import loginview, signupview, logoutview, emailview, forgpassview, emailsentview
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,5 +32,6 @@ urlpatterns = [
     path('update/<id>', updatetaskview),
     path('email/', emailview, name="emailurl"),
     path('emailsent/', emailsentview, name="emailsenturl"),
-    path('forgpass/', forgpassview, name="forgpassurl")
+    path('forgpass/(?P<uidb64>[0-9A-Za-z]+)-(?P<token>.+)/$',
+         forgpassview, name="forgpassurl")
 ]
