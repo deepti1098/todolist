@@ -4,7 +4,7 @@
     {% load static %}
     <link rel="icon" type="image/x-icon" href={% static "favicon.ico" %} />
     <title>ToDo List</title>
-    <link rel="stylesheet" type="text/css" href={% static 'style.css' %}/>
+    <link href={% static 'style.css' %} rel="stylesheet" type="text/css"/>
     <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <script src="https://kit.fontawesome.com/93da52b0e5.js" crossorigin="anonymous"></script>
@@ -51,8 +51,10 @@
         >
           <span class="navbar-toggler-icon"></span>
         </button>
+        
         <div class="collapse navbar-collapse" id="navbarText">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0"></ul>
+          {% if user.is_authenticated %}
           <form action={% url "searchurl" %} method ="post" class="d-flex" id="search-form">
             {% csrf_token %}
             <input
@@ -65,7 +67,7 @@
             <button class="btn white-text" type="submit">Search</button>
             
           </form>
-        
+          
           <div class="aligncenter">
               <button onclick="clearallmodalshow()" class="btn white-text" type="button">
               CLEAR ALL
@@ -75,6 +77,7 @@
             <i onclick="logoutmodalshow()" class="fa-solid fa-power-off white-text"></i>  LogOut
           </button>
         </div>
+        {% endif %}
 
         </div>
       </div>
