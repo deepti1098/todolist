@@ -2,29 +2,38 @@
     <div class="container px-1 py-1 h-100">
           <div class="card rounded-3 text-black">
               <div class="card-body p-md-2 mx-md-2">
-            <form action={% url "additemurl" %} method="post">
-              {% csrf_token %}
-            <input class="form-control form-control-lg mb-2 taskform" type="text" placeholder="Title" name="titl" required>
-            <textarea class="form-control mb-2 taskform" name="descr" placeholder="Description"></textarea>
-            <input class="form-control form-control-sm mb-2 taskform" name="datetime" type="datetime-local" required>
-      
+
+                <form action={% url "additemurl" %} method="post">
+                  {% csrf_token %}
+                  <!-- TITLE-->
+                  <input class="form-control form-control-lg mb-2 taskform" type="text" placeholder="Title" name="titl" required>
+                  <!-- DESCRIPTION-->
+                  <textarea class="form-control mb-2 taskform" name="descr" placeholder="Description"></textarea>
+                  <!--DATETIME -->
+                  <input class="form-control form-control-sm mb-2 taskform" name="datetime" type="datetime-local" required>
+            
             <div class="mb-2 login-btn">
+
+              <!--Add button -->
                 <button
                   class="btn btn-primary gradient-custom-1 btn-sm"
-                  type="submit"
-                >
+                  type="submit">
                   <span class="btn-text">Add</span>
                 </button>
+
+                <!--Cancel button -->
                 <a onclick="handlerHide()" style= "color:white">
                 <button
                   class="btn btn-primary gradient-custom-1 btn-sm"
-                  type="button"
-                >
+                  type="button">
                   <span class="btn-text">Cancel</span>
                 </button>
-              </a>
-              </div>
-            </form>
+                </a>
+
+            </div>
+
+          </form>
+          
         </div>
       </div>
     </div>

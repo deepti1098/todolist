@@ -14,20 +14,22 @@
                   <img
                     src={% static 'checklist.png' %}
                     style="width: 120px"
-                    alt="logo"
-                  />
+                    alt="logo"/>
                 </div>
 
                 <form action={% url "emailurl" %} method="post">
                   {% csrf_token %}
+
                   <p class="fs-4">Recover Account!</p>
 
+                  <!--if email is incorrect -->
                   {% if emailincorrect %}
                   <div class="errormsg">
                     Email id doesn't exist!
                   </div>
                   {% endif %}
                   
+                  <!--Email field -->
                   <div class="form-outline mb-4">
                     <input
                       type="email"
@@ -39,20 +41,19 @@
                     />
                   </div>
 
+                  <!--Submit button -->
                   <div class="text-center mb-2 login-btn">
                     <button
                       class="btn btn-primary btn-block fa-lg gradient-custom-2 btn-lg"
-                      type="submit"
-                    >
+                      type="submit">
                      Submit
                     </button>
                   </div>
                  
-
-                 
                 </form>
               </div>
             </div>
+
             <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
               <div class="text-white px-3 py-4 p-md-2 mx-md-4">
                   <img
@@ -62,6 +63,7 @@
                 />  
               </div>
             </div>
+            
           </div>
         </div>
       </div>
