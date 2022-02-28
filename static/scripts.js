@@ -63,14 +63,14 @@ function altericon(id) {
   $("#" + id + "-desc").attr("disabled", true);
   $("#" + id + "-date").attr("disabled", true);
 }
-
+// reset all value to thier initial values
 function cancelClickHandle(id) {
   altericon(id);
   $("#" + id + "-title")[0].value = $("#" + id + "-title")[0].defaultValue;
   $("#" + id + "-desc")[0].value = $("#" + id + "-desc")[0].defaultValue;
   $("#" + id + "-date")[0].value = $("#" + id + "-date")[0].defaultValue;
 }
-
+// making ajax call to handle update
 function updateClickHandle(id) {
   jdata = {
     Title: $("#" + id + "-title")[0].value,
@@ -80,11 +80,11 @@ function updateClickHandle(id) {
 
   $.ajax(
     {
-      url: "update/" + id,
+      url: "update/" + id,   //adding id to url
       type: "post",
-      headers: { "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val() },
+      headers: { "X-CSRFToken": $('[name=csrfmiddlewaretoken]').val() }, //adding CSRF token for POST request
       data: jdata,
-      success: function () {
+      success: function () {   //if data updated sucessfully change to not editable
         altericon(id)
       }
     }
