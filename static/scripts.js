@@ -45,6 +45,7 @@ function clearallmodalhide() {
 
 }
 
+//to hide (delete nd edit) icons and display (update nd cancel) buttons and enabling all input fields
 function editClickHandle(id) {
   $("#" + id + "-icons").addClass("removeele");
   $("#" + id + "-update").removeClass("removeele");
@@ -54,6 +55,7 @@ function editClickHandle(id) {
 
 }
 
+//to show (delete nd edit) icons and hide (update nd cancel) buttons and disabling all input fields
 function altericon(id) {
   $("#" + id + "-icons").removeClass("removeele");
   $("#" + id + "-update").addClass("removeele");
