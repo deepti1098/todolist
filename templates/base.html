@@ -86,6 +86,9 @@
               placeholder="Search"
               aria-label="Search"
               name="searchit"
+              {% if Search %}
+              value={{Search}}
+              {% endif %}
             />
             <button class="btn white-text" type="submit">Search</button> 
           </form>

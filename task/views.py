@@ -53,11 +53,12 @@ def removetaskview(request, id):
 
 
 def searchtaskview(request):
+
     if request.method == "POST":
         user = User_detail.objects.get(user=request.user)
         Search = request.POST["searchit"]
         ls = ToDO.objects.filter(user=user, title__contains=Search)
-        context = {'todolist': ls}
+        context = {'todolist': ls, "Search": Search}
         return render(request, 'list.html', context)
 
     return redirect("/")
