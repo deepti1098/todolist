@@ -108,6 +108,6 @@ def forgpassview(request, uidb64, token):
         user.set_password(Pass)  # django function to set password
         user.save()
         logout(request)
-        return render(request, 'resetdone.html')
+        return render(request, 'Resetdone.html')
 
     return render(request, 'forgotpass.html')
