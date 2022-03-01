@@ -66,8 +66,13 @@
                       pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$"
                       value="{{ Pass }}"
                     />
+                      <div id="passpattern">
+                        Password must contain min 8 characters.<br/>
+                        Password must contain atleast one special character (@, $, !, &, etc).<br/>
+                        Password must have atleast one uppercase, lowercase and numeric value.<br/>
+                      </div>
                   </div>
-
+                  
                   <!--CONFIRM PASSWORD -->
                   <div class="form-outline mb-4">
                     <input
