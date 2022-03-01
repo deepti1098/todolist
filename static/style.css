@@ -88,3 +88,6 @@
 .removeele{
     display: none;
 }
+#passpattern{
+    font-size: small;
+}
