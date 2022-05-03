@@ -1,0 +1,93 @@
+#search-form{
+    margin-right: 100px;
+}
+.todoname{
+    margin-left: 50px; 
+}
+.white-text{
+    color:white;
+}
+.login-btn{
+    width: 300px;
+}
+.navbar{
+    font-family: 'Akaya Telivigala', cursive;
+}
+.container{
+    font-family: 'Akaya Telivigala', cursive;
+}
+.list-view{
+    min-height:800px;
+}
+.btn-text{
+    font-size: 14px;
+    padding: -10px;
+}
+.taskform{
+    border: 0px solid white!important;
+}
+.form-control:disabled{
+
+    background-color: transparent!important;
+
+    opacity: 1;
+
+}
+.gradient-text{
+    color: #ee7724;
+}
+.gradient-custom-1{
+        /* fallback for old browsers */
+        background: #fccb90;
+  
+        /* Chrome 10-25, Safari 5.1-6 */
+        background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+      
+        /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+        background: linear-gradient(to right, #ee7724, #d8363a);
+}
+.gradient-custom-2 {
+    /* fallback for old browsers */
+    background: #fccb90;
+  
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to right, #ee7724, #d8363a, #dd3675, #b44593);
+  }
+  
+  @media (max-width: 768px) {
+    .todoname{
+        margin-left: 0px;
+    }
+    .aligncenter{
+        text-align:center;
+    }
+  }
+  @media (min-width: 769px) {
+    .gradient-custom-2 {
+      border-top-right-radius: .3rem;
+      border-bottom-right-radius: .3rem;
+    }
+  }
+
+.updatetask{
+    float: right;
+}
+.updatetask i{
+    padding: 3px;
+    color: #b44593;
+}
+.errormsg{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .875em;
+    color: #dc3545;
+}
+.removeele{
+    display: none;
+}
+#passpattern{
+    font-size: small;
+}

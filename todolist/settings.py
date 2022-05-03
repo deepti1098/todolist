@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'todolist.urls'
@@ -136,3 +137,5 @@ EMAIL_HOST_USER = 'projectsdark450@gmail.com'
 EMAIL_HOST_PASSWORD = 'abcd@1234'
 DEFAULT_FROM_EMAIL = 'projectsdark450@gmail.com'
 EMAIL_PORT = 465
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
